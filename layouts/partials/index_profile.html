@@ -1,5 +1,6 @@
 <div class="profile">
     {{- with site.Params.profileMode }}
+    {{- partial "background.html" . }}
     <div class="profile_inner">
         {{- if .imageUrl -}}
         {{- $img := resources.Get .imageUrl }}
