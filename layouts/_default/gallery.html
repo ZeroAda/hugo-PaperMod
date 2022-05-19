@@ -1,0 +1,111 @@
+{{- define "main" }}
+<head>
+  <style>
+
+  .item3 { grid-area: main; }
+  .item4 { grid-area: right; }
+  
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'main main main right right';
+    gap: 10px;
+    background-color: #2195f300;
+    padding: 10px;
+  }
+  
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    padding: 20px 0;
+  }
+  </style>
+  </head>
+
+<article class="post-single">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">
+      {{ .Title }}
+      {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+      {{ .Description }}
+    </div>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta">
+      {{- partial "post_meta.html" . -}}
+      {{- partial "translation_list.html" . -}}
+      {{- partial "edit_post.html" . -}}
+      {{- partial "post_canonical.html" . -}}
+    </div>
+    {{- end }}
+  </header>
+  {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
+  {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
+  {{- if (.Param "ShowToc") }}
+  {{- partial "toc.html" . }}
+  {{- end }}
+
+  {{- if .Content }}
+  <div class="post-content">
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}{{ .Content }}{{ end }}
+  </div>
+
+  {{- end }}
+
+  <div class="grid-container">
+    <div class="item3"><iframe src="https://editor.p5js.org/ZeroAda/full/bsNq6mZO2" width="410px" height="450px" style="border:none;" title="Chinese Painting">
+    </iframe></div>  
+    <div class="item4">
+      <h1>Chinese Painting</h1>
+    </br>
+
+      <p>Inspired by A Thousand Li of River and Mountains, Mengxi Wang.</p>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div class="item3"><iframe src="https://editor.p5js.org/ZeroAda/full/We8OrivTl" width="410px" height="450px" style="border:none;" title="TT"></iframe>
+    </iframe></div>  
+    <div class="item4">
+      <h1>Truchet Tiles</h1>
+    </br>
+      <p>Life repeats itself.</p>
+      </div>
+  </div>
+  
+  <iframe src="https://editor.p5js.org/ZeroAda/full/5W8BTz2lk" width="810px" height="850px"></iframe>
+  </br>
+  </br>
+
+  <h1 style="text-align:center">Light Show</h1>
+  
+
+
+  <footer class="post-footer">
+    {{- if .Params.tags }}
+    <ul class="post-tags">
+      {{- range ($.GetTerms "tags") }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+    {{- if (.Param "ShowPostNavLinks") }}
+    {{- partial "post_nav_links.html" . }}
+    {{- end }}
+    {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
+    {{- partial "share_icons.html" . -}}
+    {{- end }}
+  </footer>
+
+  {{- if (.Param "comments") }}
+  {{- partial "comments.html" . }}
+  {{- end }}
+</article>
+
+{{- end }}{{/* end main */}}
