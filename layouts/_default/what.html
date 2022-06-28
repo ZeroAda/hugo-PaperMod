@@ -58,62 +58,9 @@
 
   {{- end }}
 
-  <div class="grid-container">
-    <div class="item3"><iframe src="https://editor.p5js.org/ZeroAda/full/bsNq6mZO2" width="410px" height="450px" style="border:none;" title="Chinese Painting">
-    </iframe></div>  
-    <div class="item4">
-      <h1>Chinese Painting</h1>
-    </br>
+  <embed src="https://drive.google.com/viewerng/
+  viewer?embedded=true&url=https://github.com/ZeroAda/ZeroAda.github.io/blob/master/static/img/what-to-do/wtd.pdf" width="500" height="375">
 
-      <p>Inspired by A Thousand Li of River and Mountains, Mengxi Wang.</p>
-    </div>
-  </div>
-
-  <div class="grid-container">
-    <div class="item3"><iframe src="https://editor.p5js.org/ZeroAda/full/We8OrivTl" width="410px" height="450px" style="border:none;" title="TT"></iframe>
-    </iframe></div>  
-    <div class="item4">
-      <h1>Truchet Tiles</h1>
-    </br>
-      <p>Life repeats itself.</p>
-      </div>
-  </div>
-  
-  <iframe src="https://editor.p5js.org/ZeroAda/full/5W8BTz2lk" width="810px" height="850px"></iframe>
-  </br>
-  </br>
-
-  <h1 style="text-align:center">Light Show</h1>
-  
-</br>
-</br>
-  <iframe
-    width="950"
-    height="720"
-    src="https://www.youtube.com/embed/EiX_qS9x0x0"
-    frameborder="0"
-    allow="encrypted-media"
-    allowfullscreen
->
-</iframe>
-<h1 style="text-align:center">Spaced Out Loud</h1>
-
-
-  <footer class="post-footer">
-    {{- if .Params.tags }}
-    <ul class="post-tags">
-      {{- range ($.GetTerms "tags") }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
-    {{- end }}
-    {{- if (.Param "ShowPostNavLinks") }}
-    {{- partial "post_nav_links.html" . }}
-    {{- end }}
-    {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
-    {{- partial "share_icons.html" . -}}
-    {{- end }}
-  </footer>
 
   {{- if (.Param "comments") }}
   {{- partial "comments.html" . }}
