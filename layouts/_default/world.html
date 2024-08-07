@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Equality in Daily Life</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        .container {
+            margin: 20px;
+        }
+        .chart {
+            margin: 20px auto; /* Updated to center the chart */
+            width: fit-content; /* This ensures the div size fits the chart */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gender Equality in Daily Life</h1>
+        <p> This visualization provides an overview of gender equality metrics across more than 160 countries, showcasing how gender impacts various aspects of daily life. (it may take 1 min to load)</p>
+        <p>Data source: <a href="https://datacatalog.worldbank.org/search/dataset/0037654/Gender-Statistics">DataBank</a></p>
+        <p>Presentor: Chenyi Li, Tandon School of Engineering, New York University</p>
+        <!-- Place for Chart 1 -->
+        <div id="chart1" class="chart"></div>
+        
+        <!-- Some textual analysis -->
+        <!-- <h2>Analysis of Trends</h2>
+        <p>Here we discuss the trends observed in the data. Notice how the trends indicate a significant shift in ...</p>
+         -->
+        <!-- Place for Chart 2 -->
+        <!-- <div id="chart2" class="chart"></div> -->
+        
+        <!-- More text can go here -->
+        <!-- <h2>Further Insights</h2>
+        <p>Detailed insights regarding the data could discuss further correlations and causations found within the analysis...</p>
+         -->
+        <!-- Additional figures or charts -->
+        <!-- <div id="additionalFigure" class="chart"></div> -->
+        
+        <!-- Conclusion -->
+        <!-- <h2>Conclusion</h2>
+        <p>Concluding remarks go here, wrapping up the analysis with final thoughts and recommendations.</p> -->
+    </div>
+
+    <!-- Scripts to load Altair/Vega-Embed -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    
+    <script>
+        // Function to embed a Vega-Lite visualization from a Vega-Lite spec
+        function embedSpec(spec, element) {
+            vegaEmbed(element, spec);
+        }
+
+        // Example of embedding a chart - you will use your saved chart specs
+        fetch('/world.json').then(data => data.json()).then(spec => embedSpec(spec, '#chart1'));
+    </script>
+</body>
+</html>
