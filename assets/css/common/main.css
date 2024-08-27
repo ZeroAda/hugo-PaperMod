@@ -66,3 +66,15 @@ div.highlight:hover .copy-code,
 pre:hover .copy-code {
     display: block;
 }
+
+
+
+p a {
+    color: #bc8400; /* Blue for hyperlink text */
+    text-decoration: none;
+}
+
+p a:hover {
+    color: #cd9000; /* Red when hovered */
+}
+
